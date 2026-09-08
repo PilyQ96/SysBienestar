@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 40px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #FFFFFF, #8F8FFF);
+    font-family: "Questrial", sans-serif;
+}
+
+.titulo-pagina {
+    width: 100%;
+    text-align: center;
+    font-size: 180px;
+    margin: 0 0 20px;
+    color: #1A1A2E;
+    font-family: "Questrial", sans-serif;
+}
+
+.auth-switcher {
+    display: flex;
+    position: relative;
+}
+
+.tarjeta {
+    width: 500px;
+    box-sizing: border-box;
+    padding: 28px;
+    transition: transform 0.4s cubic-bezier(.4, 0, .2, 1),
+                filter 0.4s ease,
+                box-shadow 0.4s ease;
+    box-shadow: 0 15px 35px rgba(108, 92, 231, 0.18);
+}
+
+.tarjeta1 {
+    border-radius: 24px;
+    /*
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;*/
+    background: linear-gradient(160deg, #FFFFFF, #E8F0FF);
+    margin-right: -5px;
+}
+
+.tarjeta2 {
+    border-radius: 24px;
+    /*
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;*/
+    background: linear-gradient(-160deg, #FFFFFF, #E8F0FF);
+    margin-left: -5px;
+}
+
+.tarjeta.activa {
+    transform: scale(1) translateY(0);
+    z-index: 2;
+    filter: brightness(1) saturate(1);
+}
+
+.tarjeta.inactiva {
+    transform: scale(0.93) translateY(12px);
+    z-index: 1;
+    filter: brightness(0.85) saturate(0.5);
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.tarjeta.inactiva * {
+    pointer-events: none;
+}
+
+.titulo-pequeno {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #8B93F5;
+    margin: 0 0 6px;
+}
+
+.titulo-principal {
+    font-weight: 600;
+    font-size: 22px;
+    color: #1A1A2E;
+    margin: 0 0 20px;
+}
+
+.input-nombre {
+    margin-bottom: 20px;
+}
+
+.input-nombre input {
+    font-family: inherit;
+    font-weight: 300;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 12px;
+    background: #EEF1FF;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input-nombre input::placeholder {
+    color: #A9AFD9;
+}
+
+.input-nombre input:focus {
+    outline: 2px solid #B4BEFA;
+}
+
+.div-recordarme {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.div-recordarme input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #6C5CE7;
+    cursor: pointer;
+}
+
+.div-recordarme label {
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+}
+
+.boton-acceso {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.boton-acceso:disabled {
+    background: #E8F0FF;
+    color: #B0C7FF;
+    cursor: not-allowed;
+}
+
+.boton-acceso:not(:disabled) {
+    background: linear-gradient(135deg, #5b4fd6, #8a7ff0);
+    color: #fff;
+    cursor: pointer;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="jakarta.faces.passthrough"
+      lang="es" xml:lang="es">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="/recursos/css/styleReg.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&amp;display=swap" rel="stylesheet" />
+</h:head>
+
+<h:body>
+    <h1 class="titulo-pagina">BieneSoft</h1>
+    <h:form id="formRegistro" prependId="false" styleClass="tarjetaReg">
+        <h3 class="titulo-pequeno">¡Bienvenido!</h3>
+        <h2 class="titulo-principal">Continuar registro</h2>
+
+        <div class="input-nombre">
+            <h:outputLabel value="Nombre" for="registroNombre" styleClass="titulo-pequeno" />
+            <h:inputText id="registroNombre" value="#{registroBean.nombre}"
+                         pt:required="true" pt:placeholder="Ej: Ana" />
+        </div>
+
+        <div class="input-nombre">
+            <h:outputLabel value="Apellido" for="registroApellido" styleClass="titulo-pequeno" />
+            <h:inputText id="registroApellido" value="#{registroBean.apellido}"
+                         pt:required="true" pt:placeholder="Ej: García" />
+        </div>
+
+        <div class="input-nombre">
+            <h:outputLabel value="DNI" for="registroDni" styleClass="titulo-pequeno" />
+            <h:inputText id="registroDni" value="#{registroBean.dni}"
+                         pt:inputmode="numeric" pt:required="true" pt:placeholder="Ej: 30111222" />
+        </div>
+
+        <div class="input-nombre input-fecha">
+            <h:outputLabel value="Fecha de nacimiento" for="registroFecha" styleClass="titulo-pequeno" />
+            <p:calendar id="registroFecha" value="#{registroBean.fechaNacimiento}"
+                        pattern="dd/MM/yyyy" placeholder="dd/mm/aaaa"
+                        navigator="true" showIcon="false" maxdate="#{registroBean.hoy}"
+                        yearRange="c-100:c" styleClass="calendario-nacimiento" required="true" />
+        </div>
+
+        <div class="input-nombre">
+            <h:outputLabel value="Teléfono" for="registroTelefono" styleClass="titulo-pequeno" />
+            <h:inputText id="registroTelefono" value="#{registroBean.telefono}"
+                         pt:type="tel" pt:required="true" pt:placeholder="Ej: +54 11 5555 4444" />
+        </div>
+
+        <div class="input-nombre">
+            <h:outputLabel value="Tipo de socio" for="tipoSocio" styleClass="titulo-pequeno" />
+            <p:selectOneButton id="tipoSocio" value="#{registroBean.tipoSocio}"
+                               styleClass="selector-tipo-socio" required="true">
+                <f:selectItem itemValue="EXTERNO" itemLabel="Externo" />
+                <f:selectItem itemValue="INTERNO" itemLabel="Interno" />
+                <p:ajax update="panelInterno" />
+            </p:selectOneButton>
+        </div>
+
+        <h:panelGroup id="panelInterno" layout="block" rendered="#{registroBean.tipoSocio == 'INTERNO'}">
+            <div class="input-nombre">
+                <h:outputLabel value="Legajo" for="registroLegajo" styleClass="titulo-pequeno" />
+                <h:inputText id="registroLegajo" value="#{registroBean.legajo}"
+                             pt:required="true" pt:placeholder="Ej: 12345" />
+            </div>
+
+            <div class="input-nombre">
+                <h:outputLabel value="Categoría" for="registroCategoria" styleClass="titulo-pequeno" />
+                <p:selectOneButton id="registroCategoria" value="#{registroBean.categoriaInterna}"
+                                   styleClass="selector-categoria" required="true">
+                    <f:selectItem itemValue="ALUMNO" itemLabel="Alumno" />
+                    <f:selectItem itemValue="DOCENTE" itemLabel="Docente" />
+                    <f:selectItem itemValue="NO_DOCENTE" itemLabel="No-docente" />
+                </p:selectOneButton>
+            </div>
+        </h:panelGroup>
+
+        <div class="boton-confirmar-registro">
+            <h:commandButton id="botonRegistro" value="Continuar"
+                             action="#{registroBean.continuar()}" styleClass="boton-registro" />
+        </div>
+    </h:form>
+</h:body>
+
+</html>

@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 40px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #FFFFFF, #8F8FFF);
+    font-family: "Questrial", sans-serif;
+}
+
+.titulo-pagina {
+    width: 100%;
+    text-align: center;
+    font-size: 180px;
+    margin: 0 0 20px;
+    color: #1A1A2E;
+    font-family: "Questrial", sans-serif;
+}
+
+.tarjetaReg {
+    width: 500px;
+    box-sizing: border-box;
+    padding: 28px;
+    border-radius: 24px;
+    background: linear-gradient(160deg, #FFFFFF, #E8F0FF);
+    box-shadow: 0 15px 35px rgba(108, 92, 231, 0.18);
+}
+
+.titulo-pequeno {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #8B93F5;
+    margin: 0 0 6px;
+}
+
+.titulo-principal {
+    font-weight: 600;
+    font-size: 22px;
+    color: #1A1A2E;
+    margin: 0 0 20px;
+}
+
+.input-nombre {
+    margin-bottom: 20px;
+}
+
+.input-nombre input {
+    font-family: inherit;
+    font-weight: 300;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 12px;
+    background: #EEF1FF;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input-nombre input::placeholder {
+    color: #A9AFD9;
+}
+
+.input-nombre input:focus {
+    outline: 2px solid #B4BEFA;
+}
+
+/*
+   Estilos para adaptar <p:calendar> (PrimeFaces) a la paleta del sitio.
+   Los selectores "p-*" corresponden a PrimeFaces 10+/Jakarta Faces;
+   si el proyecto usa una versión anterior (clases "ui-*" de jQuery UI),
+   hay que ajustar estos nombres a los de esa versión.
+*/
+.calendario-nacimiento .p-inputtext {
+    font-family: inherit;
+    font-weight: 300;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 12px;
+    background: #EEF1FF;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #333;
+}
+
+.calendario-nacimiento .p-inputtext:focus {
+    outline: 2px solid #B4BEFA;
+}
+
+.p-datepicker {
+    font-family: "Questrial", sans-serif;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(160deg, #FFFFFF, #E8F0FF);
+    box-shadow: 0 15px 35px rgba(108, 92, 231, 0.25);
+    padding: 16px;
+}
+
+.p-datepicker .p-datepicker-header {
+    background: transparent;
+    border: none;
+    color: #1A1A2E;
+}
+
+.p-datepicker table td > span:hover {
+    background: #EEF1FF;
+}
+
+.p-datepicker table td > span.p-highlight {
+    background: linear-gradient(135deg, #5b4fd6, #8a7ff0);
+    color: #fff;
+}
+
+/*
+   Estilos para <p:selectOneButton> (tipo de socio / categoría interna).
+   Mismo criterio que el calendario: clases "p-*" de PrimeFaces 10+/Jakarta Faces.
+*/
+.selector-tipo-socio,
+.selector-categoria {
+    display: flex;
+    gap: 8px;
+}
+
+.selector-tipo-socio .p-button,
+.selector-categoria .p-button {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 13px;
+    background: #EEF1FF;
+    color: #333;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 16px;
+}
+
+.selector-tipo-socio .p-highlight,
+.selector-categoria .p-highlight {
+    background: linear-gradient(135deg, #5b4fd6, #8a7ff0) !important;
+    color: #fff !important;
+}
+
+.boton-registro {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.boton-registro:disabled {
+    background: #E8F0FF;
+    color: #B0C7FF;
+    cursor: not-allowed;
+}
+
+.boton-registro:not(:disabled) {
+    background: linear-gradient(135deg, #5b4fd6, #8a7ff0);
+    color: #fff;
+    cursor: pointer;
+}

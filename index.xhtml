@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BieneSoft</title>
+
+    <!-- Enlace a Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- CSS gestionado por JSF (resources/css/style1.css) -->
+    <link rel="stylesheet" href="./recursos/css/style1.css" />
+</h:head>
+
+<h:body>
+    <a class="nivel" href="./index.xhtml">nivel1</a>
+
+    <header>
+        <nav class="barraNav">
+            <h:link outcome="/index.xhtml" styleClass="logo">
+                <h:graphicImage id="logoBienestar" library="fotos" name="logoUnse.png" alt="logo" />
+            </h:link>
+
+            <div class="contenedorList">
+                <ul>
+                    <li class="navItem" id="inicio">
+                        <h:link outcome="/index.xhtml" value="Inicio"/>
+                    </li>
+                    <li class="navItem">
+                        <h:link outcome="/paginas/predio.xhtml" value="Predio"/>
+                    </li>
+                    <li class="navItem"><a href="#socios">Socios</a></li>
+                    <li class="navItem"><a href="#eventos">Eventos</a></li>
+                    <li class="navItem"><a href="https://www.unse.edu.ar/" target="_blank">Bienestar Unse</a></li>
+                </ul>
+            </div>
+
+            <div class="contenedorIconos">
+                <ul>
+                    <li>
+                        <h:link outcome="/paginas/acceso/acceso.xhtml" value="Acceder a cuenta">
+                            <button type="button">
+                                <span class="logIn">Iniciar sesion</span>
+                            </button>
+                        </h:link>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <div class="banner-items">
+            <h1>Bienvenidos al Polideportivo UNSE</h1>
+            <p>"Tu espacio deportivo y social a un clic de distancia"</p>
+        </div>
+    </div>
+
+    <section id="predio">
+        <div id="contenedorPredio">
+            <div>
+                <h:graphicImage id="instalaciones" library="fotos" name="Gemini_Generated_Image_3ewvp3ewvp3ewvp3.jpg" alt="Polideportivo Unse" />
+            </div>
+            <div id="contenedorTexto">
+                <h1>Tu lugar para entrenar, relajarte y conectar</h1>
+                <p>
+                    Descubrí todo lo que el Polideportivo tiene para vos: <br />
+                    instalaciones deportivas completas <br /> 
+                    espacios verdes <br />
+                    áreas recreativas.
+                </p>
+                <h:link outcome="/paginas/predio.xhtml"> 
+                    <button type="button">Conocer el predio</button>
+                </h:link>
+            </div>
+        </div>
+    </section>
+
+    <section id="socios">
+        <div id="contenedorSocios">
+            <div id="beneficios">
+                <h3>Disfrutá al máximo del Polideportivo <br /> Accede a beneficios exclusivos</h3>
+                <div id="contenedorTarjetas">
+                    <div class="beneficiosTarjetas">
+                        <h:graphicImage library="fotos" name="Gemini_Generated_Image_iconoReserva.jpg" alt="Reserva de instalaciones" />
+                        <div class="descripcion">
+                            <p>Reservá las instalaciones del predio</p>
+                        </div>
+                    </div>    
+                    <div class="beneficiosTarjetas">
+                        <h:graphicImage library="fotos" name="Gemini_Generated_Image_iconoDescuento.jpg" alt="Descuentos especiales" />
+                        <div class="descripcion">
+                            <p>Descuentos especiales para Alumnos, Docentes y No Docentes</p>      
+                        </div>
+                    </div>
+                    <div class="beneficiosTarjetas">
+                        <h:graphicImage library="fotos" name="Gemini_Generated_Image_iconoEvento.jpg" alt="Notificaciones de eventos" />
+                        <div class="descripcion">
+                            <p>Recibe notificaciones sobre eventos organizados en el predio.</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <div id="contenedorImagen">
+                <h1>Convertite en Socio</h1>
+                <!-- AQUI TIENES QUE PONER EL LINK AL LOG IN
+                <h:link outcome="">
+                    <button type="button">Registrarse</button>
+                </h:link>-->
+            </div>
+        </div>
+    </section>
+
+    <section id="eventos">
+        <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active"> 
+                    <h:graphicImage library="fotos" name="Gemini_Generated_Image_aetnliaetnliaetn.jpg" styleClass="d-block w-100" alt="Maratón" />
+                </div>
+                <div class="carousel-item"> 
+                    <h:graphicImage library="fotos" name="Gemini_Generated_Image_u5g9r6u5g9r6u5g9.jpg" styleClass="d-block w-100" alt="Picnic" />
+                </div>
+                <div class="carousel-item"> 
+                    <h:graphicImage library="fotos" name="Gemini_Generated_Image_19ohyf19ohyf19oh.jpg" styleClass="d-block w-100" alt="Evento de primavera" />
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <footer>
+        <div id="contenedorFooter">
+            <div id="unse">
+                <div>
+                    <h:graphicImage library="fotos" name="logoUnse.png" alt="logo Unse" />
+                </div>
+                <div id="leyendaUnse">
+                    <p>Una Universidad pluralista, inclusiva, reformista y autónoma, <br /> 
+                       con presencia territorial e inserción internacional</p>
+                </div>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Av. Siempre Viva 123</li>
+                    <li>G4200</li>
+                    <li>Santiago del Estero</li>
+                    <li>Argentina</li>
+                </ul>
+            </div> 
+            <div id="footerIconos">
+                <h3>Síguenos en</h3>
+                <div class="iconos">
+                    <div class="iconos">
+                        <a href="https://www.facebook.com/UNSEoficial/?locale=es_LA" target="_blank">
+                            <i class="fa-brands fa-facebook fa-3x"></i>
+                        </a>
+                    </div>
+                    <div class="iconos">
+                        <a href="https://www.instagram.com/unseoficial/?hl=es" target="_blank">
+                            <i class="fa-brands fa-instagram fa-3x"></i>
+                        </a>
+                    </div>
+                    <div class="iconos">
+                        <i class="fa-brands fa-whatsapp fa-3x"></i>
+                    </div>
+                    <div class="iconos">
+                        <a href="https://www.youtube.com/unseteve" target="_blank">
+                            <i class="fa-brands fa-youtube fa-3x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Script mediante JSF (resources/javascript/main.js) -->
+    <h:outputScript library="javascript" name="main.js" />
+</h:body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:pt="jakarta.faces.passthrough"
+      lang="es" xml:lang="es">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrarse / Iniciar sesión</title>
+    <link rel="stylesheet" href="/recursos/css/styleAcc.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&amp;display=swap" rel="stylesheet" />
+</h:head>
+
+<h:body>
+    <h1 class="titulo-pagina">BieneSoft</h1>
+    <div class="auth-switcher">
+
+        <h:form id="formLogin" prependId="false" styleClass="tarjeta1 tarjeta activa">
+            <h3 class="titulo-pequeno">¡Bienvenido de vuelta!</h3>
+            <h2 class="titulo-principal">Iniciar sesión</h2>
+
+            <div class="input-nombre">
+                <h:outputLabel value="Correo electrónico" for="loginEmail" styleClass="titulo-pequeno" />
+                <h:inputText id="loginEmail" value="#{loginBean.email}"
+                             pt:type="email" pt:required="true" pt:placeholder="" />
+            </div>
+
+            <div class="input-nombre">
+                <h:outputLabel value="Contraseña" for="loginPassword" styleClass="titulo-pequeno" />
+                <h:inputSecret id="loginPassword" value="#{loginBean.password}"
+                                pt:required="true" pt:placeholder="" />
+            </div>
+
+            <div class="div-recordarme">
+                <h:selectBooleanCheckbox id="recordarme" value="#{loginBean.recordarme}" />
+                <label for="recordarme">Recordarme</label>
+            </div>
+
+            <div class="boton-confirmar-acceso">
+                <h:commandButton id="botonLogin" value="Iniciar sesión"
+                                 action="#{loginBean.iniciarSesion()}" styleClass="boton-acceso" />
+            </div>
+        </h:form>
+
+        <h:form id="formRegistro" prependId="false" styleClass="tarjeta2 tarjeta inactiva">
+            <h3 class="titulo-pequeno">¡Bienvenido!</h3>
+            <h2 class="titulo-principal">Registrarse</h2>
+
+            <div class="input-nombre">
+                <h:outputLabel value="Correo electrónico" for="registroEmail" styleClass="titulo-pequeno" />
+                <h:inputText id="registroEmail" value="#{registroCuentaBean.email}"
+                             pt:type="email" pt:required="true" pt:placeholder="" />
+            </div>
+
+            <div class="input-nombre">
+                <h:outputLabel value="Contraseña" for="registroPassword" styleClass="titulo-pequeno" />
+                <h:inputSecret id="registroPassword" value="#{registroCuentaBean.password}"
+                                pt:required="true" pt:placeholder="" />
+            </div>
+
+            <div class="input-nombre">
+                <h:outputLabel value="Confirmar contraseña" for="registroConfirmar" styleClass="titulo-pequeno" />
+                <h:inputSecret id="registroConfirmar" value="#{registroCuentaBean.confirmarPassword}"
+                                pt:required="true" pt:placeholder="" />
+            </div>
+
+            <div class="boton-confirmar-acceso">
+                <h:commandButton id="botonRegistro" value="Continuar"
+                                 actionListener="#{registroCuentaBean.registrar}"
+                                 action="/paginas/acceso/register/registro?faces-redirect=true"
+                                 styleClass="boton-acceso">
+                    <f:ajax execute="@form" />
+                </h:commandButton>
+            </div>
+        </h:form>
+
+    </div>
+
+    <script src="/recursos/javascript/scriptAcc.js"></script>
+</h:body>
+
+</html>
