@@ -1,0 +1,465 @@
+/* ==========================================================================
+   HOJA DE ESTILOS: BieneSoft - Predio y Polideportivo
+   ==========================================================================
+   TABLA DE CONTENIDOS:
+   1. Importaciones y Variables Centrales
+   2. Reset y Configuración Base
+   3. Header y Navegación
+   4. Componentes: Botones
+   5. Maquetación por Franjas y Secciones
+      5.1. Franja 1: Intro / Predio (#intro)
+      5.2. Franja 2: Servicios y Deportes (#servicios)
+      5.3. Franja 3: Membresía y Carrusel (#socio, #contenedorCarusel)
+   6. Elementos Complementarios (Listas, Avisos)
+   7. Footer
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. IMPORTACIONES Y VARIABLES CENTRALES
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+:root {
+    /* Paleta de Colores Principal */
+    --blanco: #FFFFFF;
+    --celeste-claro: #E8F0FF;
+    --azul-suave: #B0C7FF;
+    --lavanda: #8F8FFF;
+    --azul-primario: #5758BB;
+    --azul-claro-franja: #B5C9FD;
+    --azul-oscuro: #35355E;
+    --negro: #1A1A2E;
+
+    /* Gradientes */
+    --gradiente-button: linear-gradient(135deg, var(--azul-suave), var(--lavanda));
+    --gradiente-button-hover: linear-gradient(135deg, var(--lavanda), var(--azul-primario));
+
+    /* Tipografía */
+    --font-main: "Questrial", sans-serif;
+
+    /* Sombras Reutilizables */
+    --sombra-suave: 0 4px 10px rgba(87, 88, 187, 0.25);
+    --sombra-tarjeta: 0 8px 24px rgba(0, 0, 0, 0.25);
+    --sombra-carrusel: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET Y CONFIGURACIÓN BASE
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--blanco);
+    padding-top: 80px;
+    font-family: var(--font-main);
+    font-weight: 400;
+    color: var(--negro);
+}
+
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+.nivel, #Inicio {
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADER Y NAVEGACIÓN
+   -------------------------------------------------------------------------- */
+header {
+    background-color: var(--celeste-claro);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.barraNav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logoBienestar {
+    width: 200px;
+    height: 80px;
+    margin-left: 15px;
+}
+
+/* Lista de Navegación */
+.contenedorList {
+    display: flex;
+    align-items: center;
+}
+
+.contenedorList ul {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+}
+
+.contenedorList li a {
+    font-family: var(--font-main);
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 50px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.contenedorList li a:hover {
+    color: var(--blanco);
+    background: var(--gradiente-button);
+    box-shadow: var(--sombra-suave);
+    transform: translateY(-2px);
+}
+
+.contenedorList li a:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(53, 53, 94, 0.2);
+}
+
+/* Iconos de Usuario / Header Right */
+.contenedorIconos ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.contenedorIconos ul li {
+    margin: 0 15px;
+}
+
+.fa-circle-user:hover {
+    background-color: var(--gradiente-button);
+    border-radius: 50%;
+}
+
+/* --------------------------------------------------------------------------
+   4. COMPONENTES: BOTONES
+   -------------------------------------------------------------------------- */
+/* Botón Principal Navbar (Iniciar Sesión) */
+.contenedorIconos button {
+    background: var(--gradiente-button);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 24px;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: var(--sombra-suave);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorIconos button i.logIn {
+    font-style: normal;
+}
+
+.contenedorIconos button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(53, 53, 94, 0.35);
+    background: var(--gradiente-button-hover);
+}
+
+.contenedorIconos button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(53, 53, 94, 0.2);
+}
+
+/* Botón Secundario (Socio) sobre Fondo Oscuro */
+#socio button {
+    background: var(--blanco) !important;
+    color: var(--azul-oscuro) !important;
+    border: none;
+    padding: 12px 28px;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#socio button:hover {
+    transform: translateY(-2px);
+    background: var(--celeste-claro) !important;
+    color: var(--azul-primario) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+#socio button:active {
+    transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   5. MAQUETACIÓN POR FRANJAS Y SECCIONES
+   -------------------------------------------------------------------------- */
+#descripcion, 
+#contenedorPrincipal {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 5.1. Franja 1: Intro / Predio (#intro) --- */
+#intro {
+    background-color: var(--azul-claro-franja);
+    color: var(--blanco);
+    width: 100%;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#intro .contenedorTexto {
+    max-width: 550px;
+    text-align: left;
+}
+
+#intro .contenedorTexto h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--blanco);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+#intro .contenedorTexto p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--celeste-claro);
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+#intro .contenedorImagen img {
+    max-width: 550px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--sombra-tarjeta);
+    object-fit: cover;
+}
+
+/* --- 5.2. Franja 2: Servicios y Deportes (#servicios) --- */
+#servicios {
+    background-color: var(--celeste-claro);
+    color: var(--negro);
+    width: 100%;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#servicios .contenedorTexto {
+    max-width: 550px;
+    text-align: left;
+}
+
+#servicios .contenedorTexto h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+    margin-bottom: 15px;
+}
+
+#servicios #fotoServicio {
+    max-width: 550px;
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(87, 88, 187, 0.15);
+    object-fit: cover;
+}
+
+/* --- 5.3. Franja 3: Membresía y Carrusel (#socio + #contenedorCarusel) --- */
+#socio {
+    background-color: var(--azul-claro-franja);
+    color: var(--blanco);
+    width: 100%;
+    padding: 50px 40px 20px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#socio h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--blanco);
+    margin: 0;
+    max-width: 600px;
+    line-height: 1.4;
+}
+
+#contenedorCarusel {
+    background-color: var(--azul-claro-franja);
+    width: 100%;
+    padding: 20px 20px 60px 20px;
+    margin: 0;
+}
+
+#carouselAutoplaying {
+    max-width: 950px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--sombra-carrusel);
+}
+
+#carouselAutoplaying .carousel-item img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   6. ELEMENTOS COMPLEMENTARIOS (LISTAS, AVISOS)
+   -------------------------------------------------------------------------- */
+/* Cuadro destacado de aviso sobre cabañas */
+#intro .contenedorTexto p:last-child {
+    background-color: var(--blanco);
+    border-left: 4px solid #36355E;
+    padding: 14px 18px;
+    border-radius: 0 10px 10px 0;
+    font-size: 0.95rem;
+    color: var(--azul-oscuro);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.40);
+    margin-top: 10px;
+}
+
+/* Listas de servicios */
+#contenedorLista ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+#contenedorLista ul > li {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+    margin-top: 14px;
+    margin-bottom: 6px;
+}
+
+#contenedorLista ul ul {
+    padding-left: 20px;
+}
+
+#contenedorLista ul ul li {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--negro);
+    margin-bottom: 4px;
+    position: relative;
+    list-style-type: none;
+}
+
+#contenedorLista ul ul li::before {
+    content: "•";
+    color: var(--azul-primario);
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* --------------------------------------------------------------------------
+   7. FOOTER
+   -------------------------------------------------------------------------- */
+footer {
+    background-color: #E8F0FF;
+    color: #35355E;
+    padding: 40px 0 25px 0;
+}
+
+#contenedorFooter {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#footerIconos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#footerIconos h3,
+#contenedorFooter h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #35355E;
+    margin-bottom: 15px;
+}
+
+#contenedorFooter ul {
+    list-style: none;
+    padding-left: 0;
+    line-height: 1.8;
+    color: #35355E;
+}
+
+#leyendaUnse p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #35355E;
+    opacity: 0.95;
+}
+
+.iconos {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.iconos a {
+    color: #5758BB;
+    transition: color 0.3s ease;
+}
+
+.iconos a:hover {
+    color: #35355E;
+}
